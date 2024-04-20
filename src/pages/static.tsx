@@ -27,7 +27,14 @@ export const getStaticProps: GetStaticProps = async () => {
   }) => {
     const [clientSideData, setClientSideData] = useState<ApiResponse>()
   
-  // ...
+    useEffect(() => {
+        fetchData()
+      }, [])
+    
+      const fetchData = async () => {
+        const data = await fetch(`/api/hello`).then(res => res.json())
+        setClientSideData(data)
+      }
   
     return (
       <Container tag="main">
