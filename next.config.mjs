@@ -3,10 +3,8 @@
 /**
  * @type {import('next').NextConfig}
  */
-const nextConfig = {reactStrictMode: true,
-  images: {
-    domains: ['store.storeimages.cdn-apple.com'],
-  },
+const nextConfig = {
+  /* config options here */
 }
  
 export default nextConfig
