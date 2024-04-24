@@ -6,7 +6,7 @@ import Header from '../src/components/Header'
 import ProductsList from '../src/components/ProductsList'
 import { fetchProducts, ProductType } from '../src/services/products'
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps = async () => {
   const products = await fetchProducts()
   return { props: { products } }
 }
