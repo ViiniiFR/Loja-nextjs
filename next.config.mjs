@@ -6,4 +6,4 @@ const nextConfig = {
   },
 }
 
-export default module.exports = nextConfig
+export default nextConfig
