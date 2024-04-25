@@ -8,9 +8,12 @@ import { fetchProducts, ProductType } from '../src/services/products'
 
 export const getStaticProps: GetStaticProps = async () => {
   const products = await fetchProducts()
-  return { props: { products } }
+  return {
+    props: {
+      products
+    }
+  }
 }
-
 const Products: NextPage = (props: {
   children?: ReactNode
   products?: ProductType[]
