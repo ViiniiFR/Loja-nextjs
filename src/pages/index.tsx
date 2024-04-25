@@ -4,7 +4,7 @@ import { NextPage } from "next"
 import Head from "next/head"
 import Link from "next/link"
 import { Button, Container } from "reactstrap"
-import Header from "../src/components/Header"
+import Header from "../src/components/Header" // Updated import path
 
 const Home: NextPage = () => {
   return (

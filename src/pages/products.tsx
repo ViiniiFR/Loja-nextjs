@@ -1,6 +1,6 @@
 import { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
-import { ReactNode } from 'react'
+import { ReactNode } from 'react' // Add missing import statement
 import { Container } from 'reactstrap'
 import Header from '../src/components/Header'
 import ProductsList from '../src/components/ProductsList'

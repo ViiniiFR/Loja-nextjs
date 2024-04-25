@@ -2,6 +2,7 @@
 
 import { NextPage } from "next";
 import Head from "next/head";
+import React from "react"; // Add the missing import statement for React
 
 const Cart: NextPage = () => {
   return (

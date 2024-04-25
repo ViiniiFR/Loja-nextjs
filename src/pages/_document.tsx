@@ -1,3 +1,5 @@
+import React from "react"; // Add the missing import statement
+
 import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
