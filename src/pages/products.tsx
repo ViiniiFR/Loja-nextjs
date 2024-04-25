@@ -1,10 +1,15 @@
-import { NextPage } from 'next'
+import { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import { ReactNode } from 'react' // Add missing import statement
 import { Container } from 'reactstrap'
 import Header from '../src/components/Header'
 import ProductsList from '../src/components/ProductsList'
-import { ProductType } from '../src/services/products'
+import { fetchProducts, ProductType } from '../src/services/products'
+
+export const getStaticProps: GetStaticProps = async () => {
+  const products = await fetchProducts()
+  return { props: { products } }
+}
 
 const Products: NextPage = (props: {
   children?: ReactNode
