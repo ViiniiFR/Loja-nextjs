@@ -1,8 +1,8 @@
 import { GetStaticProps, NextPage } from 'next'
+import { ReactNode } from 'react'
 import Head from 'next/head'
-import { ReactNode } from 'react' // Add missing import statement
-import { Container } from 'reactstrap'
 import Header from '../src/components/Header'
+import { Container } from 'reactstrap'
 import ProductsList from '../src/components/ProductsList'
 import { fetchProducts, ProductType } from '../src/services/products'
 
@@ -11,10 +11,7 @@ export const getStaticProps: GetStaticProps = async () => {
   return { props: { products } }
 }
 
-const Products: NextPage = (props: {
-  children?: ReactNode
-  products?: ProductType[]
-}) => {
+const Products: NextPage<{ products: ProductType[] }> = ({ products }) => {
   return (
     <>
       <Head>
@@ -31,7 +28,7 @@ const Products: NextPage = (props: {
             Nossos Produtos
           </h1>
 
-          {<ProductsList products={props.products!} />}
+          <ProductsList products={products} />
         </Container>
       </main>
     </>
