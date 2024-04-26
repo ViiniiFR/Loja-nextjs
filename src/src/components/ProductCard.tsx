@@ -5,7 +5,7 @@ import Link from "next/link"
 import React, { useState } from "react"
 import { Button, Card, CardBody, CardSubtitle } from "reactstrap"
 import { ProductType } from "../services/products"
-import SuccessToast from "./SuccessToast" // Add missing import statement
+import SuccessToast from "./SuccessToast"
 
 type ProductCardProps = {
   product: ProductType

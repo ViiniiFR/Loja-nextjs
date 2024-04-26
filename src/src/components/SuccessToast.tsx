@@ -1,5 +1,3 @@
-// src/components/SuccessToast.tsx
-
 import React from "react"; // Add the missing import statement for React
 import { Button, Toast, ToastBody } from "reactstrap"
 

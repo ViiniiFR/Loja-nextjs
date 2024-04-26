@@ -1,5 +1,3 @@
-// src/services/products.ts
-
 export type ProductType = {
   id: number
   name: string
