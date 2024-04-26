@@ -2,6 +2,7 @@
 
 import { NextPage } from "next";
 import Head from "next/head";
+import Header from '@/src/components/Header'
 
 const Products: NextPage = () => {
   return (
@@ -11,6 +12,8 @@ const Products: NextPage = () => {
         <meta name="description" content="ConheÃ§a todos os nossos produtos" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <Header/>
 
       <h1>
         Nossos Produtos
