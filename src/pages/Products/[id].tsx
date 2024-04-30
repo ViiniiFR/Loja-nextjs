@@ -29,7 +29,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 const Product: NextPage = (props: {
-  children?: ReactNode
   product?: ProductType
 }) => {
   return (
