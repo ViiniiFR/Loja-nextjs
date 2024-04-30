@@ -6,24 +6,36 @@ import ProductsList from "@/src/components/ProductsList";
 import { fetchProducts, ProductType } from "@/src/services/products";
 import { ReactNode } from "react";
 
-const Products: NextPage = () => {
-  return (
-    <>
-      <Head>
-        <title>Nossos Produtos</title>
-        <meta name="description" content="ConheÃ§a todos os nossos produtos" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+export const getStaticProps: GetStaticProps = async () => {
+  const products = await fetchProducts()
+  return { props: { products } }
+}
 
-      <Header/>
+const Products: NextPage = (props: {
+  children?: ReactNode
+  products?: ProductType[]
+}) => {
+return (
+  <>
+  <Head>
+    <title>Nossos Produtos</title>
+    <meta name="description" content="Conheça todos os nossos produtos" />
+    <link rel="icon" href="/favicon.ico" />
+  </Head>
 
-      <main>
-          <h1 className="my-5">
-            Nossos Produtos
-          </h1>
-      </main>
-    </>
-  )
+  <Header />
+
+  <main>
+    <Container className="mb-5">
+      <h1 className="my-5">
+        Nossos Produtos
+      </h1>
+
+      {<ProductsList products={props.products!} />}
+    </Container>
+  </main>
+</>
+)
 }
 
 export default Products
