@@ -25,7 +25,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     return { params: { id: product.id.toString() } }
   })
 
-  return { paths, fallback: false }
+  return { paths, fallback: true }
 }
 
 const Product: NextPage = (props: {
