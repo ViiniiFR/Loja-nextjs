@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 import { Container } from "reactstrap";
 import Header from "../../src/components/Header";
 import ProductDetails from "../../src/components/ProductDetails";
-import { fetchProduct, ProductType } from "../../src/services/products";
+import { fetchProduct, fetchProducts, ProductType } from "../../src/services/products";
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const id = context.params?.id
@@ -18,27 +18,11 @@ export const getStaticProps: GetStaticProps = async (context) => {
   return { redirect: { destination: '/products', permanent: false } }
 }
 
-const fetchProducts = async () => {
-  const response = await fetch('NEXT_PUBLIC_APIURL');
-
-  if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
-  }
-
-  const data = await response.text();
-
-  try {
-    return JSON.parse(data);
-  } catch (error) {
-    console.error('Erro ao analisar JSON:', error);
-    throw new Error('A resposta da API não é um JSON válido');
-  }
-}
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const products = await fetchProducts()
 
-  const paths = products.map((product: ProductType) => {
+  const paths = products.map(product => {
     return { params: { id: product.id.toString() } }
   })
 
