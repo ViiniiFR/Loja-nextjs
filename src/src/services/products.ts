@@ -9,15 +9,12 @@ export type ProductType = {
   inStock: number
 }
 
-export async function fetchProducts() {
-  const baseUrl = process.env.NEXT_PUBLIC_APIURL; // Certifique-se de que BASE_URL está definido corretamente
-  const response = await fetch(`${process.env.NEXT_PUBLIC_APIURL}/api/products`);
-  const products = await response.json();
-  return products;
+export const fetchProducts = async () => {
+  const products: ProductType[] = await fetch(`${process.env.NEXT_PUBLIC_APIURL}/api/products`).then(res => res.json() as unknown as ProductType[])
+  return products
 }
 
-export async function fetchProduct(id: string) {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_APIURL}/api/products/${id}`);
-  const product = await response.json();
-  return product;
+export const fetchProduct = async (id: string | number) => {
+  const product: ProductType = await fetch(`${process.env.NEXT_PUBLIC_APIURL}/api/products/${id}`).then(res => res.json() as unknown as ProductType)
+  return product
 }
