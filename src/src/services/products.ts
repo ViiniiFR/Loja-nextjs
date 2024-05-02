@@ -9,9 +9,8 @@ export type ProductType = {
   inStock: number
 }
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_APIURL || 'http://localhost:3000';
-
 export async function fetchProducts() {
+  const baseUrl = process.env.NEXT_PUBLIC_APIURL; // Certifique-se de que BASE_URL está definido corretamente
   const response = await fetch(`${process.env.NEXT_PUBLIC_APIURL}/api/products`);
   const products = await response.json();
   return products;
