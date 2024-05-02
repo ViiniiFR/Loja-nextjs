@@ -6,6 +6,7 @@ import Header from "../../src/components/Header";
 import ProductDetails from "../../src/components/ProductDetails";
 import { fetchProduct, fetchProducts, ProductType } from "../../src/services/products";
 
+
 export const getStaticProps: GetStaticProps = async (context) => {
   const id = context.params?.id
 
@@ -18,9 +19,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
   return { redirect: { destination: '/products', permanent: false } }
 }
 
-
 export const getStaticPaths: GetStaticPaths = async () => {
-  const products = await fetchProducts()
+  const products = await fetchProducts() as ProductType[]; // Explicitly type the return value of fetchProducts
 
   const paths = products.map(product => {
     return { params: { id: product.id.toString() } }
