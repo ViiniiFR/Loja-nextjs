@@ -18,6 +18,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   return { redirect: { destination: '/products', permanent: false } }
 }
 
+
 export const getStaticPaths: GetStaticPaths = async () => {
   const products = await fetchProducts()
 
