@@ -1,7 +1,6 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import { ReactNode } from "react";
-import { Container } from "reactstrap";
 import Header from "../../src/components/Header";
 import ProductDetails from "../../src/components/ProductDetails";
 import { fetchProduct, fetchProducts, ProductType } from "../../src/services/products";
@@ -42,9 +41,9 @@ const Product: NextPage = (props: {
 
       <Header />
 
-      <Container className="mt-5">
+      <div className="mt-5">
         <ProductDetails product={props.product!} />
-      </Container>
+      </div>
     </div>
   )
 }
