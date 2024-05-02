@@ -1,5 +1,3 @@
-import fetch from 'node-fetch';
-
 export type ProductType = {
   id: number
   name: string
@@ -10,11 +8,11 @@ export type ProductType = {
 }
 
 export const fetchProducts = async () => {
-  const products: ProductType[] = await fetch(`${process.env.NEXT_PUBLIC_APIURL || 'http://localhost:3000'}/api/products`).then(res => res.json() as Promise<ProductType[]>)
+  const products: ProductType[] = await fetch(`${process.env.NEXT_PUBLIC_APIURL}/api/products`).then(res => res.json())
   return products
 }
 
 export const fetchProduct = async (id: string | number) => {
-  const product: ProductType = await fetch(`${process.env.NEXT_PUBLIC_APIURL || 'http://localhost:3000'}/api/products/${id}`).then(res => res.json() as Promise<ProductType>)
+  const product: ProductType = await fetch(`${process.env.NEXT_PUBLIC_APIURL}/api/products/${id}`).then(res => res.json())
   return product
 }
