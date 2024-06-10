@@ -8,11 +8,19 @@ export type ProductType = {
 }
 
 export const fetchProducts = async () => {
-  const products: ProductType[] = await fetch(`${process.env.NEXT_PUBLIC_APIURL='http://localhost:3000/'}/api/products`).then(res => res.json())
+  const response = await fetch(`${process.env.NEXT_PUBLIC_APIURL}/api/products`)
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+  const products: ProductType[] = await response.json()
   return products
 }
 
 export const fetchProduct = async (id: string | number) => {
-  const product: ProductType = await fetch(`${process.env.NEXT_PUBLIC_APIURL='http://localhost:3000/'}/api/products/${id}`).then(res => res.json())
+  const response = await fetch(`${process.env.NEXT_PUBLIC_APIURL}/api/products/${id}`)
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+  const product: ProductType = await response.json()
   return product
 }
